@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab1java.controller.RegisterController">
+    <Button layoutX="63.0" layoutY="224.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+    <TextField fx:id="username" layoutX="15.0" layoutY="60.0" />
+    <TextField fx:id="email" layoutX="15.0" layoutY="101.0" />
+    <TextField fx:id="phone" layoutX="15.0" layoutY="142.0" />
+    <PasswordField fx:id="password" layoutX="15.0" layoutY="183.0" />
+    <Text layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+    <Text layoutX="16.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+    <Text layoutX="14.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+    <Text layoutX="14.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mob. phone" />
+   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" />
+</AnchorPane>

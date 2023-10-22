@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab1java.controller.MainController">
+    <TabPane fx:id="tabPane" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://www.w3.org/2001/XInclude">
+        <Tab fx:id="homePage" text="Home">
+            <fx:include source="home.fxml" />
+        </Tab>
+        <Tab fx:id="loginPage" text="Login">
+            <fx:include fx:id="login" source="login.fxml" />
+        </Tab>
+        <Tab fx:id="registerPage" text="Register">
+            <fx:include source="register.fxml" />
+        </Tab>
+        <Tab fx:id="productPage" text="Products">
+            <fx:include source="products.fxml" />
+        </Tab>
+        <Tab fx:id="warehouseProductsPage" text="Warehouse Products">
+            <fx:include source="warehouse-products.fxml" />
+        </Tab>
+        <Tab fx:id="cartPage" disable="true" text="Cart">
+            <fx:include source="warehouse.fxml" />
+        </Tab>
+        <Tab fx:id="employeePage" disable="true" text="Employee">
+            <fx:include source="employee.fxml" />
+        </Tab>
+        <Tab fx:id="warehousePage" text="Warehouse">
+            <fx:include source="warehouse.fxml" />
+        </Tab>
+        <Tab fx:id="orderPage" disable="true" text="Order">
+            <fx:include source="order.fxml" />
+        </Tab>
+    </TabPane>
+   <Text fx:id="user" layoutX="610.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No one logged in right now..." wrappingWidth="160.0" />
+   <Button fx:id="logoutButton" layoutX="740.0" layoutY="2.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="60.0" text="Log out" />
+</AnchorPane>

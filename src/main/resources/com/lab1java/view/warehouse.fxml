@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lab1java.controller.WarehouseController">
+    <TableView fx:id="warehouseTable" layoutX="20.0" layoutY="20.0" prefHeight="330.0" prefWidth="560.0">
+        <columns>
+            <TableColumn fx:id="name" prefWidth="245.0" text="Warehouse name" />
+            <TableColumn fx:id="address" prefWidth="218.0" text="Address" />
+            <TableColumn fx:id="capacity" prefWidth="96.0" text="Capacity" />
+        </columns>
+    </TableView>
+    <Button layoutX="20.0" layoutY="360.0" mnemonicParsing="false" onAction="#create" prefWidth="100.0" text="Add" />
+    <Button layoutX="140.0" layoutY="360.0" mnemonicParsing="false" onAction="#update" prefWidth="100.0" text="Update" />
+    <Button layoutX="260.0" layoutY="360.0" mnemonicParsing="false" onAction="#delete" prefWidth="100.0" text="Delete" />
+    <Button layoutX="380.0" layoutY="360.0" mnemonicParsing="false" onAction="#reload" prefWidth="100.0" text="Reload" />
+</AnchorPane>
