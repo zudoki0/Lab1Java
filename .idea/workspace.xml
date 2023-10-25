@@ -4,66 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="183e975d-b9dd-44e9-b24f-91fb8adb31c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/MainControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/WarehouseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/WarehouseProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/ProductFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/ProductUpdateFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/WarehouseFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/WarehouseProductDeleteFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/WarehouseProductFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/WarehouseUpdateFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/OrderManagerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/WarehouseDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/WarehouseProductsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Administrator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/Warehouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/model/WarehouseProducts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/employee.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/form/product-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/form/product-update-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/form/warehouse-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/form/warehouse-product-delete-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/form/warehouse-product-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/form/warehouse-update-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/order.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/products.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/register.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/warehouse-products.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/warehouse.fxml" afterDir="false" />
+    <list default="true" id="183e975d-b9dd-44e9-b24f-91fb8adb31c4" name="Changes" comment="whole project export">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/utils/Validations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/ProductFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/ProductFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/WarehouseFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/controller/form/WarehouseFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/OrderManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/OrderManagerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/WarehouseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/WarehouseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/WarehouseProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lab1java/dao/WarehouseProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/warehouse-products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lab1java/view/warehouse-products.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +50,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dung/Desktop/PT_LD1/Lab1Java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -135,6 +89,30 @@
       <option name="presentableId" value="Default" />
       <updated>1697730055494</updated>
     </task>
+    <task id="LOCAL-00001" summary="whole project export">
+      <option name="closed" value="true" />
+      <created>1697974917245</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697974917245</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="whole project export" />
+    <option name="LAST_COMMIT_MESSAGE" value="whole project export" />
   </component>
 </project>

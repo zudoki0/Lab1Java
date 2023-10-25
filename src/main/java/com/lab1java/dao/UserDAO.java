@@ -13,27 +13,47 @@ import java.util.List;
 public class UserDAO {
     public void createUser(User user) {
         String query = "INSERT INTO users(type,username,email,password,phone) VALUES(?,?,?,?,?)";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1, user.getType().toString().toLowerCase());
             stmt.setString(2,user.getUsername());
             stmt.setString(3,user.getEmail());
             stmt.setString(4,user.getPassword());
             stmt.setString(5,user.getPhone());
-            int rs = stmt.executeUpdate();
+            stmt.executeUpdate();
             System.out.println("Added manager: " + user.getUsername());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
     public List<User> getUsers() {
         List<User> users = new ArrayList<>();
         String query = "SELECT * FROM users";
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
+            rs = stmt.executeQuery();
 
             while (rs.next()) {
                 String type = rs.getString("type");
@@ -56,7 +76,29 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return users;
     }
@@ -64,11 +106,14 @@ public class UserDAO {
     public List<User> getUsers(int amount) {
         List<User> users = new ArrayList<>();
         String query = "SELECT * FROM users LIMIT ?";
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setInt(1, amount);
-            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
 
             while (rs.next()) {
                 String type = rs.getString("type");
@@ -91,38 +136,102 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return users;
     }
 
     public void deleteUser(String username) {
         String query = "DELETE FROM users WHERE username=?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1, username);
-            int rs = stmt.executeUpdate();
+            stmt.executeUpdate();
             System.out.println("Deleted user: " + username);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
     public boolean isExisting(String username) {
         String query = "SELECT DISTINCT username FROM users WHERE username=?";
         boolean userExists = false;
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
             while(rs.next()) {
                 String temp = rs.getString("username");
                 if(!temp.isEmpty()) userExists = true;
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return userExists;
     }
@@ -132,18 +241,43 @@ public class UserDAO {
         boolean userExists = false;
         String dbUsername = "";
         String dbPassword = "";
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1, username);
             stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
             while(rs.next()) {
                 dbUsername = rs.getString("username");
                 dbPassword = rs.getString("password");
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         if(username.equals(dbUsername) && password.equals(dbPassword)) userExists=true;
         return userExists;
@@ -152,11 +286,14 @@ public class UserDAO {
     public User getUserByUsername(String username) {
         User user = null;
         String query = "SELECT DISTINCT type,username,phone,email FROM users WHERE username=?";
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
             while(rs.next()) {
                 String userName = rs.getString("username");
                 String type = rs.getString("type");
@@ -175,7 +312,29 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
 
         return user;

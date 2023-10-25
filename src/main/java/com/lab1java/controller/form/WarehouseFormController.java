@@ -3,6 +3,7 @@ package com.lab1java.controller.form;
 import com.lab1java.dao.WarehouseDAO;
 import com.lab1java.model.Product;
 import com.lab1java.model.Warehouse;
+import com.lab1java.utils.Validations;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
@@ -19,6 +20,11 @@ public class WarehouseFormController {
                 || capacity.getText() == null|| capacity.getText().isEmpty()
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Some fields are empty.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+        if(!Validations.isFloat(capacity.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Capacity is not a number", ButtonType.OK);
             alert.showAndWait();
             return;
         }

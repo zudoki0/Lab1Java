@@ -2,6 +2,7 @@ package com.lab1java.controller.form;
 
 import com.lab1java.dao.ProductDAO;
 import com.lab1java.model.Product;
+import com.lab1java.utils.Validations;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -23,6 +24,11 @@ public class ProductFormController {
                 || description.getText() == null|| description.getText().isEmpty()
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Some fields are empty.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+        if(!Validations.isFloat(price.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Price is not a number.", ButtonType.OK);
             alert.showAndWait();
             return;
         }

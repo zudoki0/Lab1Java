@@ -16,6 +16,6 @@
     <Button layoutX="20.0" layoutY="360.0" mnemonicParsing="false" onAction="#create" prefWidth="100.0" text="Add" />
     <Button layoutX="140.0" layoutY="360.0" mnemonicParsing="false" onAction="#delete" prefWidth="100.0" text="Delete" />
     <Button layoutX="260.0" layoutY="360.0" mnemonicParsing="false" onAction="#reload" prefHeight="25.0" prefWidth="76.0" text="Reload" />
-    <Spinner fx:id="amountOfProducts" initialValue="1" layoutX="504.0" layoutY="360.0" max="999" min="1" prefHeight="25.0" prefWidth="76.0" />
+    <Spinner fx:id="amountOfProducts" initialValue="10" layoutX="504.0" layoutY="360.0" max="999" min="1" prefHeight="25.0" prefWidth="76.0" />
    <Text layoutX="354.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show amount of products:" />
 </AnchorPane>

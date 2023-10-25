@@ -12,9 +12,11 @@ import java.util.List;
 public class ProductDAO {
     public void createProduct(Product product) {
         String query = "INSERT INTO products(type, name, description, price) VALUES(?,?,?,?)";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1,product.getType());
             stmt.setString(2,product.getName());
             stmt.setString(3, product.getDescription());
@@ -22,14 +24,31 @@ public class ProductDAO {
             int rs = stmt.executeUpdate();
             System.out.println("Added product: " + product.getName());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
     public void updateProduct(Product product, int id) {
         String query = "UPDATE products SET type=?,name=?,description=?,price=? WHERE id=?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1,product.getType());
             stmt.setString(2,product.getName());
             stmt.setString(3, product.getDescription());
@@ -38,39 +57,89 @@ public class ProductDAO {
             int rs = stmt.executeUpdate();
             System.out.println("Updated product: " + product.getName());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
     public void deleteProduct(String name) {
         String query = "DELETE FROM products WHERE name=?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1, name);
             int rs = stmt.executeUpdate();
             System.out.println("Deleted product: " + name);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
     public void deleteProduct(int id) {
         String query = "DELETE FROM products WHERE id=?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);stmt = con.prepareStatement(query);
             stmt.setInt(1, id);
             int rs = stmt.executeUpdate();
             System.out.println("Deleted product: " + id);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
     public ObservableList<Product> getTableProduct() {
         List<Product> productList = new ArrayList<>();
         String query = "SELECT * FROM products";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 String type = rs.getString("type");
@@ -81,7 +150,22 @@ public class ProductDAO {
                 productList.add(product);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return FXCollections.observableArrayList(productList);
     }
@@ -89,9 +173,11 @@ public class ProductDAO {
     public List<Product> getProduct() {
         List<Product> productList = new ArrayList<>();
         String query = "SELECT * FROM products";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 String type = rs.getString("type");
@@ -102,7 +188,22 @@ public class ProductDAO {
                 productList.add(product);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return productList;
     }
@@ -110,9 +211,11 @@ public class ProductDAO {
     public List<Product> getProduct(int amount) {
         List<Product> productList = new ArrayList<>();
         String query = "SELECT * FROM products LIMIT ?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setInt(1, amount);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
@@ -125,7 +228,22 @@ public class ProductDAO {
                 productList.add(product);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return productList;
     }
@@ -133,9 +251,11 @@ public class ProductDAO {
     public ObservableList<Product> getWarehouseProducts(int amountOfProducts) {
         List<Product> warehouseProductsList = new ArrayList<>();
         String query = "select distinct wp.productId, p.name, p.description, p.price, p.type, count(wp.productId) AS amount FROM warehouse_products wp JOIN products p ON wp.productId=p.id GROUP BY wp.productId LIMIT ?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setInt(1, amountOfProducts);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
@@ -148,7 +268,22 @@ public class ProductDAO {
                 warehouseProductsList.add(product);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return FXCollections.observableArrayList(warehouseProductsList);
     }
@@ -158,9 +293,11 @@ public class ProductDAO {
         String query = "";
         if(descending) query = "select distinct wp.productId, p.name, p.description, p.price, p.type, count(wp.productId) AS amount FROM warehouse_products wp JOIN products p ON wp.productId=p.id GROUP BY wp.productId ORDER BY p.price DESC";
         else query = "select distinct wp.productId, p.name, p.description, p.price, p.type, count(wp.productId) AS amount FROM warehouse_products wp JOIN products p ON wp.productId=p.id GROUP BY wp.productId ORDER BY p.price ASC";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 int amount = rs.getInt("amount");
@@ -172,7 +309,22 @@ public class ProductDAO {
                 warehouseProductsList.add(product);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return FXCollections.observableArrayList(warehouseProductsList);
     }
@@ -182,9 +334,11 @@ public class ProductDAO {
         String query = "";
         if(descending) query = "select distinct wp.productId, p.name, p.description, p.price, p.type, count(wp.productId) AS amount FROM warehouse_products wp JOIN products p ON wp.productId=p.id GROUP BY wp.productId ORDER BY p.name DESC";
         else query = "select distinct wp.productId, p.name, p.description, p.price, p.type, count(wp.productId) AS amount FROM warehouse_products wp JOIN products p ON wp.productId=p.id GROUP BY wp.productId ORDER BY p.name ASC";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 int amount = rs.getInt("amount");
@@ -196,7 +350,22 @@ public class ProductDAO {
                 warehouseProductsList.add(product);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return FXCollections.observableArrayList(warehouseProductsList);
     }
@@ -204,16 +373,33 @@ public class ProductDAO {
     public int getProductId(String name) {
         int productId = 0;
         String query = "SELECT id FROM products WHERE name=?";
+        Connection con = null;
+        PreparedStatement stmt = null;
         try {
-            Connection con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
-            PreparedStatement stmt = con.prepareStatement(query);
+            con = DriverManager.getConnection(Database.dbURL,Database.dbUsername, Database.dbPassword);
+            stmt = con.prepareStatement(query);
             stmt.setString(1,name);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 productId = rs.getInt("id");
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
         return productId;
     }
